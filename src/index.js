@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ImageGallery from './ImageGallery';
+import ImageGallery from './ImageGallery.js';
 
 import './index.css';
 

@@ -1,19 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-/*ImageSelectorBar.propTypes = {
-  onList: PropTypes.func.isRequired,
-  onThumbnail: PropTypes.func.isRequired,
-  onGallery: PropTypes.func.isRequired
-};
-function ImageSelectorBar(props) {
-  return (
-    <div>
-      <button onClick={props.onList}>List View</button>
-      <button onClick={props.onThumbnail}>Thumbnail View</button>
-      <button onClick={props.onGallery}>Gallery View</button>
-    </div>
-  );
-};*/
+import images from './images.js';
 
 function ListView(props) {
   return (
@@ -25,20 +12,38 @@ function ListView(props) {
   );
 }
 
+// 100x100 thumbnail image
 function ThumbnailView(props) {
-  
+  return (
+    <div>
+      <h1>{props.image.title}</h1>
+      <h1>{props.image.url}</h1>
+    </div>
+  );
+}
+
+// full-size image
+function GalleryView(props) {
+  return (
+    <div>
+      <h1>{props.image.title}</h1>
+      <h1>{props.image.description}</h1>
+      <h1>{props.image.url}</h1>
+    </div>
+  );
 }
 
 function ImageSelectorBar(props) {
   return (
     <div>
-      <button onclick={() => props.clickHandler('list')}>List View</button>
-      <button onclick={() => props.clickHandler('thumbnail')}>Thumbnail View</button>
-      <button onclick={() => props.clickHandler('gallery')}>Gallery View</button>
+      <button onClick={() => props.clickHandler('list')}>List View</button>
+      <button onClick={() => props.clickHandler('thumbnail')}>Thumbnail View</button>
+      <button onClick={() => props.clickHandler('gallery')}>Gallery View</button>
     </div>
-  ) 
+  ); 
 }
 
+// establishes default state
 export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
@@ -61,17 +66,16 @@ export default class ImageGallery extends Component {
     });
   }
 
-
   render() {
     let contents;
     if (this.state.currentView === 'thumbnail') {
-      contents = <ThumbnailView image={this.state.image} />
+      contents = < ThumbnailView image={this.state.image} />;
     }
     else if (this.state.currentView === 'gallery') {
-      contents = <GalleryView image={this.state.image} />
+      contents = < GalleryView image={this.state.image} />;
     }
     else {
-      contents = <ListView image={this.state.image} />
+      contents = < ListView image={this.state.image} />;
     }
     return (
       <div>
