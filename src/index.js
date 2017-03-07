@@ -1,9 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import ImageGallery from './ImageGallery';
+
 import './index.css';
 
+const makeMeCentered = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  height: '100vh',
+};
+
+let app = <ImageGallery/>;
+
 ReactDOM.render(
-  <App />,
+  <div style={makeMeCentered}>
+    {app}
+  </div>,
   document.getElementById('root')
 );
