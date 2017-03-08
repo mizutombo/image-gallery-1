@@ -1,13 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
-import images from './images.js';
+import image from './images.js';
 
 function ListView(props) {
   return (
     <div>
-      <h1>{props.image.title}</h1>
-      <h1>{props.image.description}</h1>
-      <h1>{props.image.url}</h1>
+      <h1> {props.image.title} </h1>
+      <h1> {props.image.description} </h1>
+      <h1> {props.image.url} </h1>
+      <h1> {props.image.img} </h1>
     </div>
   );
 }
@@ -16,8 +17,8 @@ function ListView(props) {
 function ThumbnailView(props) {
   return (
     <div>
-      <h1>{props.image.title}</h1>
-      <h1>{props.image.url}</h1>
+      <h1> {props.image.title} </h1>
+      <h1> {props.image.url} </h1>
     </div>
   );
 }
@@ -26,9 +27,9 @@ function ThumbnailView(props) {
 function GalleryView(props) {
   return (
     <div>
-      <h1>{props.image.title}</h1>
-      <h1>{props.image.description}</h1>
-      <h1>{props.image.url}</h1>
+      <h1> {props.image.title} </h1>
+      <h1> {props.image.description} </h1>
+      <h1> {props.image.img} </h1>
     </div>
   );
 }
@@ -36,9 +37,9 @@ function GalleryView(props) {
 function ImageSelectorBar(props) {
   return (
     <div>
-      <button onClick={() => props.clickHandler('list')}>List View</button>
-      <button onClick={() => props.clickHandler('thumbnail')}>Thumbnail View</button>
-      <button onClick={() => props.clickHandler('gallery')}>Gallery View</button>
+      <button onClick={() => props.clickHandler('list')}> List View </button>
+      <button onClick={() => props.clickHandler('thumbnail')}> Thumbnail View </button>
+      <button onClick={() => props.clickHandler('gallery')}> Gallery View </button>
     </div>
   ); 
 }
@@ -55,9 +56,7 @@ export default class ImageGallery extends Component {
         url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
       }
     };
-
     this.clickHandler = this.clickHandler.bind(this);
-
   }
 
   clickHandler(newView) {
